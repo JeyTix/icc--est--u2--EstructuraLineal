@@ -5,10 +5,13 @@ import Materia.Models.Node;
 
 public class Stacks {
     private Node top; // Nodo en la cima de nuestra pila
+    private int size;
 
     // Creamos la pila con la cima null o vacia
     public Stacks() {
         this.top = null;
+       this.size = 0;
+       size++; 
     }
 
     public void push (int value){
@@ -24,6 +27,7 @@ public class Stacks {
         }
         int value= top.getValue();
         top= top.getNext();
+        size--;
         return value;
     }
     
@@ -32,6 +36,32 @@ public class Stacks {
     }
 
     public int peek(){
-        
+        if(isEmpty()){
+            throw new EmptyStackException();
+        }
+        return top.getValue();
+    }
+
+    public void prinStack(){
+        Node current = top;
+        while(current!= null){
+            System.out.print(current.getValue()+"| ");
+            current = current.getNext();
+        }
+        System.out.println();
+    }
+
+    public void getSizeStack(){
+        int count = 0;
+        Node current = top;
+        while(current!= null){
+            count++;
+            current = current.getNext();
+        }
+        System.out.println("Tamaño de la pila: " + count);
+    }
+
+    public int getSizeStackComplejo(){
+        return size;
     }
 }

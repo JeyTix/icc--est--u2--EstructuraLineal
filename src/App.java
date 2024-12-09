@@ -1,32 +1,42 @@
+import Controllers.MenuController;
 import Materia.Stacks.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        runStack();        
+        // runStack();        
+
+        runContactMannager();
+
     }
 
-    public static void runStack(){
-            Stacks s= new Stacks();
+    private static void runContactMannager(){
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
+    }
 
-            s.push(5);
-            s.push(7);
-            s.push(10);
-            s.push(20);
+    // public static void runStack(){
+    //         Stack s= new Stack();
 
-            s.prinStack();
-            s.getSizeStack();
-            System.out.println("Top element is: " + s.peek());
-            System.out.println("Popping-> " + s.pop());
-            s.prinStack();
-            s.getSizeStack();
-            System.out.println("Top element is: " + s.peek());
-            System.out.println("Popping-> " + s.pop());
-            s.prinStack();
-            s.getSizeStack();
-            System.out.println("Top element is: " + s.peek());
-            s.prinStack();
-            s.getSizeStack();
+    //         s.push(5);
+    //         s.push(7);
+    //         s.push(10);
+    //         s.push(20);
+
+    //         s.prinStack();
+    //         // s.getSizeStack();
+    //         System.out.println("Tamano: "+s.getSizeStackComplejo());
+    //         System.out.println("Top element is: " + s.peek());
+    //         System.out.println("Popping-> " + s.pop());
+    //         s.prinStack();
+    //         s.getSizeStack();
+    //         System.out.println("Top element is: " + s.peek());
+    //         System.out.println("Popping-> " + s.pop());
+    //         s.prinStack();
+    //         s.getSizeStack();
+    //         System.out.println("Top element is: " + s.peek());
+    //         s.prinStack();
+    //         s.getSizeStack();
             
-        }
+    //     }
 }

@@ -3,12 +3,12 @@ import java.util.EmptyStackException;
 
 import Materia.Models.Node;
 
-public class Stacks {
+public class Stack {
     private Node top; // Nodo en la cima de nuestra pila
     private int size;
 
     // Creamos la pila con la cima null o vacia
-    public Stacks() {
+    public Stack() {
         this.top = null;
        this.size = 0;
        size++; 

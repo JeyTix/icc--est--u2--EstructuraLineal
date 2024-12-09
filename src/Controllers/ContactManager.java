@@ -12,4 +12,10 @@ public class ContactManager {
     public void addContact(Contact<?,?> contact) {
         contacts.appenedToTail(contact);
     }
+
+    public void printList(List<Contact> contacts) {
+        for(Contact contact : contacts){
+            System.out.println(contact);
+        }
+    }
 }

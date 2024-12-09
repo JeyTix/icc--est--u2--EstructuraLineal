@@ -20,11 +20,11 @@ public class MenuController {
                     break;
             
                 case "2":
-                    
+                    findContact();
                     break;
             
                 case "3":
-                    
+                    deletedContact();
                     break;
             
                 case "4":
@@ -58,18 +58,20 @@ public class MenuController {
     }
 
     private void findContact(){
-        
+        System.out.println("SOON...");
     }
 
     private void deletedContact(){
-        
+        System.out.println("SOON...");
     }
 
     private void printList(){
-        LinkedList<Contact<String, String>> contacts= contactManager.getContacts();
-        consoleView.showMessage("Contacts:");
-        for(Contact<String, String> contact: contacts){
-            consoleView.showMessage(contact.toString());
-        }
+        // LinkedList<Contact<String, String>> contacts= contactManager.getContacts();
+        // consoleView.showMessage("Contacts:");
+        // for(Contact<String, String> contact: contacts){
+        //     consoleView.showMessage(contact.toString());
+        // }
+
+        
     }
 }

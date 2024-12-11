@@ -2,8 +2,6 @@ package Controllers;
 
 import Views.ConsoleView;
 import models.Contact;
-import models.LinkedList;
-import Controllers.*;
 
 public class MenuController {
     private ContactManager contactManager;
@@ -57,21 +55,27 @@ public class MenuController {
         consoleView.showMessage("Contact created");
     }
 
-    private void findContact(){
-        System.out.println("SOON...");
+    private void findContact() {
+        String name = consoleView.getinput("Enter a name to search: ");
+        Contact<?, ?> contact = contactManager.findContactByName(name);
+        if (contact != null) {
+            consoleView.showMessage("Contact found: " + contact);
+        } else {
+            consoleView.showMessage("Contact not found 404");
+        }
     }
 
     private void deletedContact(){
         System.out.println("SOON...");
+        String name= consoleView.getinput("Enter a name to delete: ");
+        contactManager.deletedContactByName(name);
+        consoleView.showMessage("Contact deleted");
+
     }
 
     private void printList(){
-        // LinkedList<Contact<String, String>> contacts= contactManager.getContacts();
-        // consoleView.showMessage("Contacts:");
-        // for(Contact<String, String> contact: contacts){
-        //     consoleView.showMessage(contact.toString());
-        // }
-
-        
+       consoleView.showMessage("Lista");
+       contactManager.printList();
+       consoleView.showMessage("======"); 
     }
 }

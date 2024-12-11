@@ -27,18 +27,22 @@ public class LinkedList<T> {
 
     }
 
-    public void print(){
-        if(head== null){
+    public void print() {
+        if (head == null) {
             System.out.println("END");
             return;
         }
         NodeGeneric<T> current = head;
-        while(current.getNext()!=null){
-            System.out.print(current.getValue()+" -> ");
+        while (current != null) {
+            System.out.print(current.getValue());
+            if (current.getNext() != null) {
+                System.out.print(" -> ");
+            }
             current = current.getNext();
-        } 
-        System.out.println("END");
+        }
+        System.out.println(" -> END");
     }
+    
 
     public NodeGeneric<T> getHead() {
         return head;

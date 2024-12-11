@@ -1,5 +1,6 @@
 package Controllers;
 
+import Materia.Models.NodeGeneric;
 import models.*;
 
 public class ContactManager {
@@ -13,9 +14,40 @@ public class ContactManager {
         contacts.appenedToTail(contact);
     }
 
-    public void printList(List<Contact> contacts) {
-        for(Contact contact : contacts){
-            System.out.println(contact);
+    public void printList() {
+        contacts.print();
+    }
+
+    public Contact<?,?> findContactByName(String name) {
+        NodeGeneric<Contact<?,?>> current= contacts.getHead();
+        while (current!= null) {
+            if (((String) current.getValue().getName()).equals(name)) {
+                return current.getValue();
+            }
         }
+        return null;
+    }    
+
+    public void deletedContactByName(String name) {
+        NodeGeneric<Contact<?,?>> current= contacts.getHead();
+        if (current==null)return;
+
+        //Caso 1: Contacto es la HEAD o cabeza
+        if (((String) current.getValue().getName()).equalsIgnoreCase(name)){
+            contacts.setHead(current.getNext());
+            contacts.setSize(contacts.getSize()-1);
+            return;
+        }
+        
+        //Casp 2: En el resto debemos de iterar la lista
+        while (current.getNext()!=null){ 
+            if (((String) current.getNext().getValue().getName()).equalsIgnoreCase(name)) {
+                current.setNext(current.getNext().getNext());
+                contacts.setSize(contacts.getSize()-1);
+                return;
+            }
+            current= current.getNext();
+        }
+
     }
 }

@@ -17,7 +17,7 @@ public class Contact<T, U> {
     }
     @Override
     public String toString() {
-        return "Contact [name=" + name + ", phone=" + phone + "]";
+        return name+"("+phone+")";
     }
     public Contact(T name, U phone) {
         this.name = name;

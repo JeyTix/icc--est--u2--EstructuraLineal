@@ -21,9 +21,10 @@ public class ContactManager {
     public Contact<?,?> findContactByName(String name) {
         NodeGeneric<Contact<?,?>> current= contacts.getHead();
         while (current!= null) {
-            if (((String) current.getValue().getName()).equals(name)) {
+            if (((String) current.getValue().getName()).equalsIgnoreCase(name)) {
                 return current.getValue();
             }
+            current= current.getNext();
         }
         return null;
     }    

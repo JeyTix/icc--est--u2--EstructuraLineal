@@ -1,7 +1,8 @@
+
 package Materia.Stacks;
 
-import Materia.Models.NodeGeneric;
-import java.util.EmptyStackException; 
+import java.util.EmptyStackException;
+import Materia.Models.NodeGeneric; 
 
 public class StackGeneric<T> {
     private NodeGeneric<T> top;
@@ -50,7 +51,7 @@ public class StackGeneric<T> {
         NodeGeneric<T> current = top;
         System.out.println("Contenido de la pila:");
         while (current != null) {
-            System.out.println("-> " + current.getValue()); 
+            System.out.println("->  " + current.getValue()); 
             current = current.getNext(); 
         }
         System.out.println("null"); 
@@ -65,4 +66,20 @@ public class StackGeneric<T> {
         size--;                          
         return currentTop;              
     }
+
+    @Override
+    public String toString() {
+        NodeGeneric<T> current = top;
+        StringBuilder sb = new StringBuilder();
+        sb.append("(tope) ");
+        while (current != null) {
+            sb.append(current.getValue());
+            if (current.getNext() != null) {
+                sb.append("->");
+            }
+            current = current.getNext();
+        }
+        return sb.toString();
+    }
+    
 }
